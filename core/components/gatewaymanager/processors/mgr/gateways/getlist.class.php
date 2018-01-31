@@ -36,7 +36,7 @@ class GatewaysGetListProcessor extends modObjectGetListProcessor {
 		$arr['sitestart'] = (string) $arr['sitestart'];
 		if(!empty($arr['sitestart'])) {
 			$resource = $this->modx->getObject('modResource', $arr['sitestart']);
-			$arr['startpage'] = $resource->get('pagetitle');
+			if ( $resource ) $arr['startpage'] = $resource->get('pagetitle');
 		}
 		return $arr;
     }
